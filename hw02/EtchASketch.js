@@ -53,10 +53,10 @@ for(coutX=0; countX<width; countX++){
 }
 
 //initilize interrups
-b.attachInterrupt(up, true, b.change, updateUp());
-b.attachInterrupt(down, true,b.change, updateDown());
-b.attachInterrupt(left, true, b.change, updateLeft());
-b.attachInterrupt(right, true,b.change, updateRight());
+b.attachInterrupt(up, true, b.change, updateUp);
+b.attachInterrupt(down, true,b.change, updateDown);
+b.attachInterrupt(left, true, b.change, updateLeft);
+b.attachInterrupt(right, true,b.change, updateRight);
 //Loop forever but draw map first
 
 drawMap();
