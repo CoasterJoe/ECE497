@@ -12,7 +12,7 @@ var down = 'P9_41';
 var left = 'P9_21';
 var right = 'P9_22';
 
-b.pinMode(right,b.INPUT, 7, 'pulldown');
+b.pinMode(up,b.INPUT, 7, 'pulldown');
 b.pinMode(down, b.INPUT, 7, 'pulldown');
 b.pinMode(left,b.INPUT,7,'pulldown');
 b.pinMode(right,b.INPUT,7,'pulldown');
