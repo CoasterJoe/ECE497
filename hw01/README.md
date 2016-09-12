@@ -24,3 +24,12 @@ The program will ask you if you want to move up, down, or neither. 'U' moves you
 The program will ask you if you want to move left, right, or neither. 'L' moves you left. 'R' moves you right. 'N' does neither.
 
 The program will draw the map and it will repeat the same questions over again.
+
+==========
+Comments by Prof. Yoder
+The program compiles and runs, but it has an awkard interface.  I'd rather
+be able to enter u, d, l, r in one command, rather than in two steps.
+The initial display isn't cleared.
+The board was never redisplayed.
+
+Grade:  7/10
