@@ -18,13 +18,14 @@ int main(int argc, char **argv)
   printf("\nEtch-A-Sketch Program 1.0\n\n");
 
 //Get Coordinates
-  int width;
-  int height;
+  int wHolder;
+  int hHolder;
   printf("Enter in the width:\n");
-  scanf("%d", &width);
+  scanf("%d", &wHolder);
   printf("Enter in the height:\n");
-  scanf("%d", &height);
-
+  scanf("%d", &hHolder);
+  int width = wHolder;
+  int height = hHolder;
 if(width<=0||height<=0){
    printf("Error, width and height must be greater than zero\n");
    return 0;
@@ -53,7 +54,7 @@ while(1==1){
   	printf("\t%d",drawX);
   }
   printf("\n");
-
+ 
 //Draw the rest of the 
   for(drawY=0; drawY<height; drawY++){
   	printf("%d:",drawY);
@@ -74,7 +75,8 @@ while(1==1){
  justCleared = 0;
   //Player Response
 
-
+ 
+ 
 
 //Takes user input and moves the person up, down, or neither
   printf("Move Up 'u'\nMove Down 'd'\nMove Left 'l'\nMove Right 'r'\nErase 'e'\nor Quit 'q'\n");
