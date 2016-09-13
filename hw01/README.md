@@ -33,3 +33,7 @@ The initial display isn't cleared.
 The board was never redisplayed.
 
 Grade:  7/10
+
+=========
+
+I haved updated my code. 'u' is up. 'd' is down. 'l' is left. 'r' is right. 'e' is erase. 'q' is quit. The initial display is clear and the when the board is cleared, it is redisplayed.
