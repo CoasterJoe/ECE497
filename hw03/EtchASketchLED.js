@@ -1,5 +1,5 @@
 //Joseph Militello
-//9/7/16
+//9/15/16
 //This is the second itteration of the EthASketch program. This one will involve buttons.
 
 //Beagle Bone Stuff
@@ -9,11 +9,11 @@ var b = require('bonescript');
 
 //i2c stuff
 //var time = 1000; 
+var i2c = require('i2c');
 var matrix = 0x70;
-var port = '/dev/i2c-2'
+var port = '/dev/i2c-2';
 
-var smile = [0x00, 0x3c, 0x00, 0x42, 0x28, 0x89, 0x04, 0x85, 
- 0x04, 0x85, 0x28, 0x89,0x00, 0x42, 0x00, 0x3c];
+var smile = [0x00, 0x3c, 0x00, 0x42, 0x28, 0x89, 0x04, 0x85,  0x04, 0x85, 0x28, 0x89,0x00, 0x42, 0x00, 0x3c];
 
 
 //Assigning pin values
@@ -31,11 +31,14 @@ b.pinMode(clear,b.INPUT,7,'pulldown');
 
 
 //i2c screen
-b.i2cOpen(port, matrix);
-b.i2cWriteByte(port, 0x21);
-b.i2cWriteByte(port, 0x81);
-
-b.i2cWriteBytes(port, 0x00, smile);
+var wire = new i2c(0x70,{
+	device: '/dev/i2c-2'
+});
+wire.writeByte(0x21, function(err){
+	wire.writeByte(0x81, function(eff){
+		setTimeout(doSmile, 0);
+	});
+});
 
 //edit these variables for differnt size worlds
 
@@ -86,6 +89,10 @@ b.attachInterrupt(clear, true,b.FALLING, clearMap);
 status = 1;
 clearMap();
 
+function doSmile(){
+	wire.writeBytes(0x00, smile, function(err){
+	});
+}
 
 
 //Funciont Clear Map
