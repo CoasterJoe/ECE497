@@ -87,9 +87,8 @@ function iScreen(){
 }
 function clearScreen(){
 	console.log("Clear");
-	if(green===0){
-		green=1;
-	}else{
+	green = green+1;
+	if(green>=3){
 		green=0;
 	}
 	iScreen();
@@ -104,6 +103,9 @@ function addScreen(){
 	}
 	
 	screen[xValue]=screen[xValue]|Math.pow(2,yCord);
+	if(green===2){
+	screen[xValue+1]=screen[xValue+1]|Math.pow(2,yCord);
+	}
 	doScreen();
 	
 }
