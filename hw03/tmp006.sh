@@ -3,9 +3,14 @@
 
 #TMP006 Temperature Reading
 
-TEMP=$(i2cget -y 2 0x40 01)
-ATEMP=$(((TEMP*9)/5+32))F
+echo "Printing Temperature"
 
-echo "Printing Temperarture" 
-echo $TEMP
-echo $ATEMP
+a=0
+#loop through and continously print temperature
+while [ $a -lt 10 ]
+do
+	TEMP=$(i2cget -y 2 0x40 01)
+	ATEMP=$(((TEMP*9)/5+32))F
+	echo $ATEMP
+done
+
