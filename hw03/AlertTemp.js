@@ -9,11 +9,11 @@
 var b = require('bonescript');
 
 
-var alert = 'P9_17';
-var alert2 = 'P9_18';
+var alert = 'P9_11';
+var alert2 = 'P9_12';
 
 var led1 = 'P9_13';
-var led2 = 'P9_14';
+var led2 = 'P9_15';
 
 
 var state= b.HIGH;
@@ -28,17 +28,12 @@ b.attachInterrupt(alert, true, b.CHANGE, turnOn);
 b.attachInterrupt(alert2, true, b.CHANGE, turnOn2);
 
 
-
 console.log("Waiting for Alert");
 start = 1;
-while(1==1){
 
-//b.digitalWrite(led1,b.HIGH);
-//b.digitalWrite(led2,b.HIGH);
-}
 
 function turnOn(){
-	console.log("Alert");
+	console.log("Alert!");
 	if(start===0){
 		return; 
 	}
@@ -47,7 +42,7 @@ function turnOn(){
 }
 
 function turnOn2(){
-	console.log("Alert2");
+	console.log("Alert2!");
 	if(start===0){
 		return;
 	}
