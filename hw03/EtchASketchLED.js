@@ -12,16 +12,26 @@ var b = require('bonescript');
 var i2c = require('i2c');
 var matrix = 0x70;
 var port = '/dev/i2c-2';
+var LEDSize = 16;
+var screen = new Array(LEDSize);
 
-var smile = [0x00, 0x3c, 0x00, 0x42, 0x28, 0x89, 0x04, 0x85,  0x04, 0x85, 0x28, 0x89,0x00, 0x42, 0x00, 0x3c];
+
+var count = 0;
+
+//Initialize Screen
+for(count=0; counter<LEDSize/2; count=count+2){
+	screen[count]=0;
+	screen[count]=0xFF;
+}
+
 
 
 //Assigning pin values
-var up = 'P9_42';
-var down = 'P9_41';
-var left = 'P9_18';
-var right = 'P9_17';
-var clear = 'P9_21';
+var up = 'P9_27';
+var down = 'P9_28';
+var left = 'P9_29';
+var right = 'P9_30';
+var clear = 'P9_31';
 
 b.pinMode(up,b.INPUT, 7, 'pulldown');
 b.pinMode(down, b.INPUT, 7, 'pulldown');
@@ -30,13 +40,13 @@ b.pinMode(right,b.INPUT,7,'pulldown');
 b.pinMode(clear,b.INPUT,7,'pulldown');
 
 
-//i2c screen
+//i2c screen Inital Screen
 var wire = new i2c(0x70,{
 	device: '/dev/i2c-2'
 });
 wire.writeByte(0x21, function(err){
 	wire.writeByte(0x81, function(eff){
-		setTimeout(doSmile, 0);
+		setTimeout(doScreen, 0);
 	});
 });
 
@@ -89,8 +99,8 @@ b.attachInterrupt(clear, true,b.FALLING, clearMap);
 status = 1;
 clearMap();
 
-function doSmile(){
-	wire.writeBytes(0x00, smile, function(err){
+function doScreen(){
+	wire.writeBytes(0x00, screen, function(err){
 	});
 }
 
@@ -103,6 +113,11 @@ function clearMap(){
 		for(yCount=0;yCount<height; yCount++){
 			spots[xCount][yCount]=" ";
 		}
+	}
+	//Initialize Screen
+	for(count=0; counter<LEDSize/2; count=count+2){
+		screen[count]=0;
+		screen[count]=0xFF;
 	}
 	drawMap();
 }
@@ -148,24 +163,27 @@ function drawMap(){
 		return;
 	}
 	spots[xCord][yCord]="X";
-	var drawX=0;
-	var drawY=0;
-	var printStringLine= "";
-	for(drawX=0; drawX<width;drawX++){
-		printStringLine +="\t"+drawX;
-	}
-	console.log(printStringLine);
+	
+	var countX = 0;
+	var countY = 0;
+	
 
-	var printString="";
-	//Print out vertically
-	for(drawY=0; drawY<height; drawY++){
-		 printString=""+drawY;
-		for(drawX=0; drawX<width; drawX++){
-			printString+="\t"+spots[drawX][drawY];
+	//Get data in correct form
+	for(countX = 0; countX<width; countX++){
+		for(countY=0; countY<height; countY++){
+			if(spots[countX][countY]==="X"){
+				screen[countX*2]=screen[countX*2]+2^countY;
+			}
 		}
-		//printString+="|";
-		console.log(printString);
+		screen[countX*2+1]=0x00;	
 	}
+
+
+	wire.writeByte(0x21, function(err){
+		wire.writeByte(0x81, function(eff){
+			setTimeout(doScreen, 0);
+		});
+	});
 
 	//console.log(printString);
 }
