@@ -1,26 +1,31 @@
 //Joseph Militello
 //9/15/16
-//This is the second itteration of the EthASketch program. This one will involve buttons.
+//This is the third itteration of the EthASketch program. This one will involve buttons and the LED matrix
 
 //Beagle Bone Stuff
 //#!/usr/bin/env node
 var b =require('bonescript');
+
 console.log("Starting Program");
 
+
+
 //i2c stuff
+
 //var time = 1000; 
 var i2c = require('i2c');
 var matrix = 0x70;
 var port = '/dev/i2c-2';
 var LEDSize = 16;
 
-
+//Set up variables
 var count = 0;
 var screen = new Array(16);
-
 var status = 0;
 var green=0;
 
+
+//Initialize Screen
 iScreen();
 
 
@@ -29,7 +34,7 @@ var wire = new i2c(0x70,{
 	device: '/dev/i2c-2'
 });
 
-
+//Draw the screen
 wire.writeByte(0x21, function(err){
 	wire.writeByte(0x81, function(err){
 		wire.writeByte(0xe7, function(err){	
@@ -38,10 +43,9 @@ wire.writeByte(0x21, function(err){
 	});
 });
 
-
+//Set up the starting position and the width of the screen (must be 8x8)
 var width = 8;
 var height = 8;
-
 var xCord = 0;
 var yCord = 0;
 
@@ -66,18 +70,19 @@ b.attachInterrupt(left,true,b.FALLING, goLeft);
 b.attachInterrupt(right,true,b.FALLING, goRight);
 b.attachInterrupt(clear,true,b.FALLING, clearScreen);
 
-
+//Allow Interrupts to be triggered
 status = 1;
 doScreen();
 
 console.log("Ready");
 
 
+//Draw the screen
 function doScreen(){
-//	console.log("Doing Screen");
 	wire.writeBytes(0x00, screen, function(err){
 	});
 }
+
 //Shows initial Screen
 function iScreen(){
 	for(count=0; count<16; count=count+2){
@@ -85,6 +90,8 @@ function iScreen(){
 		screen[count+1]=0x00;
 	}
 }
+
+//Clears the screen and changes color
 function clearScreen(){
 	console.log("Clear");
 	green = green+1;
@@ -95,8 +102,10 @@ function clearScreen(){
 	addScreen();
 }
 
+
+//Adds a new spot on the screen
 function addScreen(){
-//	iScreen();
+
 	var xValue = 2*xCord;
 	if(green===0){
 		xValue++;
@@ -110,6 +119,7 @@ function addScreen(){
 	
 }
 
+//Makes sure a value is within the screen
 function checkValue(){
 	if(xCord<0){
 		xCord=0;
