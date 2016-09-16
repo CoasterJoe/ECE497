@@ -19,7 +19,7 @@ var count = 0;
 var screen = new Array(16);
 
 var status = 0;
-
+var green=0;
 
 iScreen();
 
@@ -69,6 +69,7 @@ b.attachInterrupt(clear,true,b.FALLING, clearScreen);
 
 status = 1;
 doScreen();
+
 console.log("Ready");
 
 
@@ -80,21 +81,31 @@ function doScreen(){
 //Shows initial Screen
 function iScreen(){
 	for(count=0; count<16; count=count+2){
-		screen[count]=0xFF;
+		screen[count]=0x00;
 		screen[count+1]=0x00;
 	}
 }
 function clearScreen(){
 	console.log("Clear");
+	if(green===0){
+		green=1;
+	}else{
+		green=0;
+	}
 	iScreen();
 	addScreen();
 }
 
 function addScreen(){
-	var holder = Math.pow(2,yCord);
-	screen[2*xCord]=screen[2*xCord]-holder;
-	screen[2*xCord+1]=holder+screen[2*xCord+1];
-	doScreen();	
+//	iScreen();
+	var xValue = 2*xCord;
+	if(green===0){
+		xValue++;
+	}
+	
+	screen[xValue]=screen[xValue]|Math.pow(2,yCord);
+	doScreen();
+	
 }
 
 function checkValue(){
