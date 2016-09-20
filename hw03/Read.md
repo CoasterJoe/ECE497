@@ -7,3 +7,8 @@ tmp06.sh is a shell file that contintously prints the temperature. It seems to b
 The EtcASketchLED.js is the new Etch-A-Sketch program. You will need five buttons, for up, down, left, right, and clear. When you clear, the color will change. Keep pressing clear to change the color.
 
 
+==========
+Comments from Prof. Mark A. Yoder
+Looks good.
+
+Grade:  10/10
