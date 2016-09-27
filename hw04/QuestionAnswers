@@ -1,5 +1,5 @@
 Question Answers
-1. The basic action between the boneServer.js is to connect the bone with the HTML file. It also serves to set up the port that the device listens to. The boneServer.js behaves like a mediator. It passes data between the two. When the boneServer.js calls "matrix" on the bone, it starts commands to start the oscillator, blink the display, and make the LEDMatrix the full brightness.
+1. The basic action between the boneServer.js is to connect the bone with the HTML file. It also serves to set up the port that the device listens to. The boneServer.js behaves like a mediator. It passes data between the two. When the boneServer.js calls "matrix" on the bone, it starts commands to start the oscillator, blink the display, and make the LEDMatrix the full brightness. This system of files allows for the boneServer to handle communication and the server. The HTML file can handle how the website looks, and the bone can handle the rest. 
 
 2. When an LED is clicked in the HTML file, it calls the function 'updateFromLED()'. This calls the updateFromLED() function from the matrixLED.js. This in turns calls the socket.on('matrix.old', function (i2cNum)) This reads the values on the led matrix. It then compares the two data files and update the led matrix to make sure it matches.
 
