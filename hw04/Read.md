@@ -14,3 +14,10 @@ matrixLED.js - I edited this to add the yellow and red squares.
 Memmory - The Beagle Bone version of Figure 2-5 I created
 
 
+==========
+Prof. Yoder's comments
+Nicely documented.
+Your memory map figure is readable, but a bit low resolution.
+Otherwise hw04 looks good.
+
+Grade:  10/10
