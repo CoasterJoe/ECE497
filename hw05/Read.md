@@ -1,3 +1,7 @@
+joeMakeFile.make is the makefile I am submitting. This is the makefile that I have worked on.
+
+The tmp101.js is the program that sends data to the phant. 
+
 I sucessfully completed the kernal and the cross compile. My cross compile data is below.
 From Host
 Hello, World! Main is executing at 0x400512 
@@ -21,4 +25,4 @@ This address (0x11030) is in our bss section
 This address (0x11028) is in our data section
 root@beaglebone:~# 
 
-Also, joeMakeFile.make is the makefile I am submitting.
+
