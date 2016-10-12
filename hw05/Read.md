@@ -26,3 +26,8 @@ This address (0x11028) is in our data section
 root@beaglebone:~# 
 
 
+==========
+Prof. Yoder's comments
+Looks good.  Did you get the kernel compiled and running?
+
+Grade:  9/10
