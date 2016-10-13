@@ -31,3 +31,5 @@ Prof. Yoder's comments
 Looks good.  Did you get the kernel compiled and running?
 
 Grade:  9/10
+
+Yes, I did get the kernal compiled and running.
