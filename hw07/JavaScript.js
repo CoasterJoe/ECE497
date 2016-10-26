@@ -1,6 +1,6 @@
 //Joseph Militello
-//9/9/16
-//Simple button and blink program
+//10/25/26 
+//Simple button to turn on a led
 
 
 //#!/usr/bin/env node

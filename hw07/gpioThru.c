@@ -1,8 +1,9 @@
-// From : http://stackoverflow.com/questions/13124271/driving-beaglebone-gpio-through-dev-mem
-//
-// Read one gpio pin and write it out to another using mmap.
-// Be sure to set -O3 when compiling.
-// Modified by Mark A. Yoder  26-Sept-2013
+//Joe Militello
+
+/*
+10/25/16
+Edited so that a button turns on and off an LED
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/mman.h>

@@ -1,0 +1,1 @@
+cmd_/root/ECE497/hw07/exploringBB/extras/kernel/gpio_test/gpio_test.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /root/ECE497/hw07/exploringBB/extras/kernel/gpio_test/gpio_test.ko /root/ECE497/hw07/exploringBB/extras/kernel/gpio_test/gpio_test.o /root/ECE497/hw07/exploringBB/extras/kernel/gpio_test/gpio_test.mod.o
