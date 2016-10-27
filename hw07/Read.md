@@ -14,3 +14,8 @@ Second, here are the results of the GPIO speed tests:
   
   Finally, I used PRU. PRU was by far the fastest. On average, it would only respong in 3.8 nano seconds. With a maximum of 4 nano seconds and a minimum of 3.6 nano seconds. It also used very little of the processor. This method clearly was by far the fastests. My files for this are in the folder PRU and in PRU.png.
   
+==========
+Prof. Yoder's comments
+Looks good.  Results aren't in a table.
+
+Grade:  9/10
