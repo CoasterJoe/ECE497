@@ -1,6 +1,6 @@
 <head> </head>
 <title>Fun Face Cam </title>
-
+<link rel="stylesheet" type="text/css" href="boneServer.css">
 
 
  <html>
@@ -13,17 +13,68 @@
 <body><center> 
 
  <button id="connect1" onclick='hello()'/>Connect</button>
-  <button type="button">New Picture</button> 
-   <button type="button">New Picture</button> 
-    <button type="button">New Picture</button> 
-    </body>
-	
-<nav>
-  <center> 
-<IMG  SRC="joe.jpg" WIDTH=320 HEIGHT=240>
+  <button id="connect3" onclick= "myFunction()">Refresh</button> 
+ 
+    <button type="button" onclick="kill()">Kill</button> 
+    
+    
+    
+
+
+
+
+<script>
+const exec = require('child_process').exec;
+function myFunction() {
+    location.reload();
+}
+
+
+function AddMustache() {
+ 
+    var x = document.createElement("IMG");
+    x.setAttribute("src", "mustache.png");
+    x.setAttribute("width", "200");
+    x.setAttribute("width", "200");
+    x.setAttribute("alt", "mustache");
+    x.setAttribute("class", "funFace");
+    document.body.appendChild(x);
+    
+
+}
+
+
+// function DoC(){
+    
+    
+    
+//     exec('./app', (error, stdout, stderr) => {
+//          if (error) {
+//             console.error(`exec error: ${error}`);
+//             return;
+//         }
+//         console.log(`stdout: ${stdout}`);
+//         console.log(`stderr: ${stderr}`);
+//     });
+
+// }
+
+</script>
+
+<button id="connect2" onclick= "buttonAdd()">Mustache</button>
+  
+
+
+
+
+<P></P>
+<P class ="location">
+<IMG  class="picture" SRC="joe.jpg" WIDTH=320 HEIGHT=240>    
+</P>
+
 </body>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="buttonBlink.js"></script> 
 <script src="boneServer.js"></script> 
 </html> 

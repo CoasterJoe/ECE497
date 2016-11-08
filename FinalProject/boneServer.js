@@ -75,6 +75,7 @@ io.set('log level', 2);
 // for Exposed events
 
 // on a 'connection' event
+console.log("Joe");
 io.sockets.on('connection', function (socket) {
 
     console.log("Connection " + socket.id + " accepted.");
@@ -240,8 +241,20 @@ io.sockets.on('connection', function (socket) {
     connectCount++;
     console.log("connectCount = " + connectCount);
 });
+console.log("Joe2");
+
+var tomJoe=0;
+if(tomJoe==5){
+    return;
+}
 
 
+function kill(){
+    console.log("Kill")
+    //throw new Error('Goodbye');
+   tomJoe=5;
+   // exit();
+}
 
 function sendAudio() {
 //        console.log("Sending data");

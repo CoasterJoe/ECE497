@@ -8,7 +8,7 @@
 //Import Bonescript
 var b = require('bonescript');
 	
-
+var exec = require('child_process').exec;
 
 
 //Declare button pins
@@ -49,6 +49,21 @@ function printStatus(){
 	}else{
 		state = b.HIGH;
 	}
+}
+
+
+
+//320 240
+
+function buttonAdd(){
+	var facePicX = $(window).width()/2;
+	//var facePicY = $(window).height();
+	var x = facePicX-50;
+	var y =210;
+	console.log(x.toString()+"px");
+	$('.location').append('<IMG  class="funFace" SRC="mustache.png" WIDTH=100 HEIGHT=100>');
+	$('.funFace').css("left",x.toString()+"px");
+	$('.funFace').css("top",y.toString()+"px");
 }
 
 
