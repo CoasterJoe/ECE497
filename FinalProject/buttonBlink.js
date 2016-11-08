@@ -25,7 +25,7 @@ var state = b.LOW;
 
 //Set the LED's to an output
 b.pinMode(LED,b.OUTPUT);
-
+//picture();
 
 //Sets buttons to an input
 b.pinMode(button, b.INPUT, 7, 'pulldown');
@@ -66,6 +66,32 @@ function buttonAdd(){
 	$('.funFace').css("top",y.toString()+"px");
 }
 
+function buttonHat(){
+	var facePicX = $(window).width()/2;
+	//var facePicY = $(window).height();
+	var x = facePicX-75;
+	var y =110;
+	console.log(x.toString()+"px");
+	$('.location').append('<IMG  class="funFace2" SRC="hat.png" WIDTH=150 HEIGHT=100>');
+	$('.funFace2').css("left",x.toString()+"px");
+	$('.funFace2').css("top",y.toString()+"px");
+}
+
+function buttonSunglasses(){
+	var facePicX = $(window).width()/2;
+	//var facePicY = $(window).height();
+	var x = facePicX-75;
+	var y =200;
+	console.log(x.toString()+"px");
+	$('.location').append('<IMG  class="funFace3" SRC="sunglasses.png" WIDTH=150 HEIGHT=50>');
+	$('.funFace3').css("left",x.toString()+"px");
+	$('.funFace3').css("top",y.toString()+"px");
+}
+
+// function picture(){
+// 	var y=200;
+// 	$('.picture').css("top", y.toString()+"px");
+// }
 
 
 function hello(){
