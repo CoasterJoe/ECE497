@@ -59,7 +59,7 @@ function turnOn(){
 	if(err){
 
 	}else{
-		var aTemp = res*9/5+32
+		var aTemp =( res*9)/5+32
 		console.log(aTemp+"F");
 	}
 	});
@@ -78,7 +78,7 @@ function turnOn2(){
 	if(err){
 
 	}else{
-		var aTemp2 = res2*9/5+32
+		var aTemp2 =( res2*9)/5+32
 		console.log(aTemp2+"F");
 	}
 	});

@@ -9,8 +9,8 @@ a=0
 #loop through and continously print temperature
 while [ $a -lt 10 ]
 do
-	TEMP=$(i2cget -y 2 0x40 01)
-	ATEMP=$(((TEMP*9)/5+32))F
+	TEMP=$(i2cget -y 2 0x40 01 w)
+	ATEMP=$(((((TEMP)/128)*9)/5+32))F
 	echo $ATEMP
 done
 
